@@ -2,6 +2,7 @@ const mongoose = require("mongoose"),
   validator = require("validator"),
   bcrypt = require("bcryptjs"),
   jwt = require("jsonwebtoken");
+Product = require("./product");
 
 const userSchema = new mongoose.Schema(
   {
@@ -56,6 +57,15 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+/**
+ * Create a virtual relation between User and product.
+ */
+userSchema.virtual("products", {
+  ref: "Product",
+  localField: "_id",
+  foreignField: "owner",
+});
 
 /**
  * // By naming this instance method toJSON we don't
@@ -119,6 +129,17 @@ userSchema.pre("save", async function (next) {
   if (user.isModified("password"))
     user.password = await bcrypt.hash(user.password, 8);
 
+  next();
+});
+
+/**
+ * Delete user products when a user is removed.
+ */
+userSchema.pre("remove", async function (next) {
+  const user = this;
+  await Product.deleteMany({
+    owner: user._id,
+  });
   next();
 });
 
