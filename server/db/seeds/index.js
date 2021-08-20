@@ -5,7 +5,9 @@ require("../config/index");
 const Product = require("../models/product"),
   User = require("../models/user"),
   faker = require("faker"),
-  mongoose = require("mongoose");
+  mongoose = require("mongoose"),
+  productsData = require("../../data/products");
+axios = require("axios");
 
 const dbReset = async () => {
   const collections = Object.keys(mongoose.connection.collections);
@@ -22,7 +24,8 @@ const dbReset = async () => {
   });
   const userIdArray = [];
 
-  for (let i = 0; i < 100; i++) {
+  // USER SEEDING
+  for (let i = 0; i < 5; i++) {
     const me = new User({
       name: `${faker.name.firstName()} ${faker.name.lastName()}`,
       admin: Boolean(Math.round(Math.random())),
@@ -33,16 +36,40 @@ const dbReset = async () => {
     userIdArray.push(me._id);
   }
 
-  for (let i = 0; i < 100; i++) {
+  // PRODUCT SEEDING
+  productsData.forEach(async (item) => {
     const product = new Product({
-      brandName: faker.lorem.paragraph(),
-      productName: faker.lorem.paragraph(),
-      price: faker.lorem.paragraph(),
-      image: faker.lorem.paragraph(),
-      productId: faker.lorem.paragraph(),
+      brandName: item.brandName,
+      productName: item.productName,
+      price: item.price,
+      image: item.image,
+      productId: item.productId,
+      description: item.description,
+      concerns: item.concerns,
+      categoryType: item.categoryType,
+      concerns: item.concerns,
+      skinType: item.skinType,
+      reviews: [
+        {
+          title: faker.lorem.sentence(),
+          content: faker.lorem.paragraph(),
+          postedBy: userIdArray[Math.floor(Math.random() * userIdArray.length)],
+        },
+        {
+          title: faker.lorem.sentence(),
+          content: faker.lorem.paragraph(),
+          postedBy: userIdArray[Math.floor(Math.random() * userIdArray.length)],
+        },
+        {
+          title: faker.lorem.sentence(),
+          content: faker.lorem.paragraph(),
+          postedBy: userIdArray[Math.floor(Math.random() * userIdArray.length)],
+        },
+      ],
     });
     await product.save();
-  }
+  });
+
   await User.countDocuments({}, function (err, count) {
     console.log("Number of users:", count);
   });

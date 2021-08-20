@@ -1,5 +1,6 @@
 const mongoose = require("mongoose"),
-  moment = require("moment");
+  moment = require("moment"),
+  fs = require("fs");
 
 const productSchema = new mongoose.Schema(
   {
@@ -28,6 +29,36 @@ const productSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    categoryType: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    description: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    concerns: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    skinType: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    reviews: [
+      {
+        title: String,
+        content: String,
+        postedBy: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+      },
+    ],
   },
   {
     timestamps: true,
@@ -45,3 +76,5 @@ productSchema.methods.toJSON = function () {
 const Product = mongoose.model("Product", productSchema);
 
 module.exports = Product;
+
+// GET ALL PRODUCTS

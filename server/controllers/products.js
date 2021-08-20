@@ -23,10 +23,11 @@ exports.createProduct = async (req, res) => {
 exports.getSpecificProduct = async (req, res) => {
   const _id = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(_id))
-    return res.status(400).send("Not a valid task id");
+    return res.status(400).send("Not a valid product id");
 
   try {
-    const product = await Product.findOne({ _id, owner: req.user._id });
+    const product = await Product.findOne({ _id });
+    // const product = await Product.findOne({ _id, owner: req.user._id });
     if (!product) return res.status(404).send();
 
     res.json(product);
@@ -54,9 +55,19 @@ exports.getAllProducts = async (req, res) => {
   // }
 
   try {
+    // const products = Product.find({}, (err, product) => {
+    //   res.json(product);
+    // });
+
     const products = await Product.find();
     res.json(products);
+    // res.json(products);
   } catch (e) {
     res.status(500).json({ error: e.toString() });
   }
 };
+
+// function getProducts(req, res) {
+//   const products = inventoriesModel.getInventories();
+//   res.status(200).json(inventories);
+// }
