@@ -16,6 +16,7 @@ exports.createProduct = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
+4;
 
 // ***********************************************//
 // Get a specific product

@@ -17,11 +17,13 @@ require("./db/config");
 const express = require("express"),
   app = express(),
   morgan = require("morgan"),
+  cors = require("cors"),
   cookieParser = require("cookie-parser"),
   openRoutes = require("./routes/open"),
   path = require("path");
 
 // Parse incoming JSON into objects
+app.use(cors());
 app.use(express.json());
 // Log all requests
 app.use(morgan("dev"));

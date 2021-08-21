@@ -51,6 +51,7 @@ const productSchema = new mongoose.Schema(
     },
     reviews: [
       {
+        name: String,
         title: String,
         content: String,
         postedBy: {
