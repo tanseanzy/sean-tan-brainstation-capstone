@@ -5,7 +5,7 @@ import "./UserSignUp.scss";
 export default class UserSignUp extends Component {
   userSignup = (obj) => {
     axios
-      .post("http://localhost:8080/api/users/", obj)
+      .post("http://localhost:8080/api/users/signup", obj)
       .then((response) => {
         console.log(response.data);
       })

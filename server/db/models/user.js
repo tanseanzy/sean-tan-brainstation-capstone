@@ -68,7 +68,7 @@ const userSchema = new mongoose.Schema(
  * // By naming this instance method toJSON we don't
  * // need to call it for it to run because of our
  * // express res.send or res.json methods calls it for us.
- * @return { name, email, admin, avatar, timestamps }
+
  */
 userSchema.methods.toJSON = function () {
   const user = this;
@@ -78,11 +78,8 @@ userSchema.methods.toJSON = function () {
   return userObject;
 };
 
-/**
- * // This instance method will generate a user token
- * // and append it to the user.tokens array in the DB
- * @return { token }
- */
+// instance method to generate a user token
+// @return {token}
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign(
@@ -107,9 +104,10 @@ userSchema.methods.generateAuthToken = async function () {
  */
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
-  if (!user) throw new Error("Unable to log in.");
+  if (!user) throw new Error("Unable to log in");
+
   const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) throw new Error("Unable to login.");
+  if (!isMatch) throw new Error("Unable to log in");
   return user;
 };
 
@@ -132,13 +130,13 @@ userSchema.pre("save", async function (next) {
 /**
  * Delete user products when a user is removed.
  */
-userSchema.pre("remove", async function (next) {
-  const user = this;
-  await Product.deleteMany({
-    owner: user._id,
-  });
-  next();
-});
+// userSchema.pre("remove", async function (next) {
+//   const user = this;
+//   await Product.deleteMany({
+//     owner: user._id,
+//   });
+//   next();
+// });
 
 const User = mongoose.model("User", userSchema);
 

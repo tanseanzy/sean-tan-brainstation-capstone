@@ -1,5 +1,5 @@
 const router = require("express").Router(),
-  { createUser, loginUser } = require("../../controllers/users"),
+  { createUser, loginUser, getAllUsers } = require("../../controllers/users"),
   {
     getAllProducts,
     getSpecificProduct,
@@ -9,9 +9,10 @@ const router = require("express").Router(),
 // ROUTER GET
 router.get("/products", getAllProducts);
 router.get("/products/:id", getSpecificProduct);
+router.get("/allusers", getAllUsers);
 
 // ROUTER POST
-router.post("/", createUser);
+router.post("/signup", createUser);
 router.post("/login", loginUser);
 // router.post("/products", createProduct);
 

@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 //pages imports
-// import LandingPage from "./pages/LandingPage";
+
 import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import ProductDetails from "./pages/ProductDetails";
@@ -20,7 +20,6 @@ function App() {
         <Header />
         <main className="main">
           <Switch>
-            {/* <Route path="/" exact component={LandingPage} /> */}
             <Route path="/" exact component={HomePage} />
             <Route path="/about" exact component={About} />
             <Route path="/product/:id" exact component={ProductDetails} />

@@ -1,5 +1,4 @@
 import "./Product.scss";
-import { Link } from "react-router-dom";
 
 export default function Product(props) {
   const products = props.productDetails;
@@ -11,7 +10,7 @@ export default function Product(props) {
     products && (
       <div className="product">
         <div className="product__imagecontainer">
-          <img className="product__image" src={products.image} />
+          <img className="product__image" src={products.image} alt="Product" />
         </div>
         <div className="product__textcontainer">
           <div className="product__header">

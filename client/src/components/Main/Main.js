@@ -10,7 +10,7 @@ export default function Main(props) {
           <li className="main__container" key={product._id}>
             <Link to={`/product/${product._id}`}>
               <div className="main__container-image">
-                <img src={product.image} />
+                <img src={product.image} alt="Product" />
               </div>
               <div className="main__container-text">
                 <p className="main__container-text-brand">

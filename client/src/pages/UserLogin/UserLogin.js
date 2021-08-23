@@ -4,36 +4,46 @@ import "./UserLogin.scss";
 import { Link } from "react-router-dom";
 
 export default class UserLogin extends Component {
-  loginUser = (obj) => {
-    axios
-      .post("http://localhost:8080/api/users/login", obj)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  state = {
+    formData: null,
+  };
+
+  loginForm = (event) => {
+    this.setState({
+      formData: {
+        ...this.state.formData,
+        [event.target.name]: event.target.value,
+      },
+    });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-
-    const userDetails = {
-      email: event.target.email.value,
-      password: event.target.password.value,
-    };
-    this.loginUser(userDetails);
-    alert("Succesfully logged in!");
+    axios
+      .post("http://localhost:8080/api/users/login", this.state.formData)
+      .then((response) => {
+        sessionStorage.setItem("token", response.data.userToken);
+        // console.log(this.props);
+        this.props.history.push("/");
+      })
+      .catch((event) => console.log(event.message));
   };
 
   render() {
+    const token = sessionStorage.getItem("token");
+    // console.log(token);
     return (
       <div className="login">
-        <h1> hello!</h1>
+        <h1> welcome back!</h1>
         <form className="login__form" onSubmit={this.handleSubmit}>
           <label className="login__form-label">e-mail</label>
           <div>
-            <input className="login__form-input" type="email" name="email" />
+            <input
+              className="login__form-input"
+              type="email"
+              name="email"
+              onChange={this.loginForm}
+            />
           </div>
           <label className="login__form-label">password</label>
           <div>
@@ -41,6 +51,7 @@ export default class UserLogin extends Component {
               className="login__form-input"
               type="password"
               name="password"
+              onChange={this.loginForm}
             />
           </div>
           <button className="login__button" type="submit">
