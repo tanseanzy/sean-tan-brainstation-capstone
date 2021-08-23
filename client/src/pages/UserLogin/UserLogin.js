@@ -31,7 +31,7 @@ export default class UserLogin extends Component {
 
   render() {
     const token = sessionStorage.getItem("token");
-    // console.log(token);
+    console.log(token);
     return (
       <div className="login">
         <h1> welcome back!</h1>

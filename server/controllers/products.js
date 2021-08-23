@@ -3,18 +3,26 @@ const mongoose = require("mongoose"),
 
 // Create a product
 exports.createProduct = async (req, res) => {
-  const product = await new Product({
-    ...req.body,
-    owner: req.user._id,
-  });
+  const { title, content, likes } = req.body;
   try {
-    product.save();
-    res.status(201).json(product);
+    const post = await new Post({
+      brandName,
+      productName,
+      price,
+      categoryType,
+      description,
+      concerns,
+      skinType,
+      reviews,
+      postedBy: req.decoded.id,
+    });
+    post.save();
+    console.log(post);
+    res.status(201).json(post);
   } catch (e) {
     res.status(400).json({ error: e.toString() });
   }
 };
-4;
 
 // Get a specific product
 exports.getSpecificProduct = async (req, res) => {

@@ -49,6 +49,7 @@ const dbReset = async () => {
       categoryType: item.categoryType,
       concerns: item.concerns,
       skinType: item.skinType,
+      createdBy: userIdArray[Math.floor(Math.random() * userIdArray.length)],
       reviews: [
         {
           name: `${faker.name.firstName()} ${faker.name.lastName()}`,

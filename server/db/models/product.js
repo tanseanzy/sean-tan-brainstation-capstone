@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema(
     },
     productId: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
     },
     categoryType: {
@@ -48,6 +48,10 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
+    },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
     reviews: [
       {

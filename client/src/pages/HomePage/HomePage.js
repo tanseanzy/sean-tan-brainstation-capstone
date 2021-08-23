@@ -13,7 +13,6 @@ export default class HomePage extends Component {
     axios
       .get("http://localhost:8080/api/users/products/")
       .then((response) => {
-        console.log(response.data);
         this.setState({
           products: response.data,
         });

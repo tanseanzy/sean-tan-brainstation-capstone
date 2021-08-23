@@ -6,14 +6,13 @@ const router = require("express").Router(),
     createProduct,
   } = require("../../controllers/products");
 
-// ROUTER GET
+// Router GET
 router.get("/products", getAllProducts);
 router.get("/products/:id", getSpecificProduct);
 router.get("/allusers", getAllUsers);
 
-// ROUTER POST
+// Router Post
 router.post("/signup", createUser);
 router.post("/login", loginUser);
-// router.post("/products", createProduct);
 
 module.exports = router;

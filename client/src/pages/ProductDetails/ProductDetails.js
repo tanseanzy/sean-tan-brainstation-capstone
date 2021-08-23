@@ -15,8 +15,6 @@ export default class ProductDetails extends Component {
         `http://localhost:8080/api/users/products/${this.props.match.params.id}`
       )
       .then((response) => {
-        console.log(response.data);
-        console.log(response.data.reviews);
         this.setState({
           productDetails: response.data,
           productReviews: response.data.reviews,
@@ -28,7 +26,6 @@ export default class ProductDetails extends Component {
   }
   render() {
     const productReviews = this.state.productReviews;
-    console.log(productReviews);
     return (
       <div className="main">
         {this.state.productDetails && (
@@ -39,7 +36,7 @@ export default class ProductDetails extends Component {
               <h2>reviews</h2>
               {productReviews.map((pR, key) => {
                 return (
-                  <div className="main__reviews-container">
+                  <div className="main__reviews-container" key={pR.id}>
                     <p className="main__reviews-name">{pR.name}</p>
                     <p className="main__reviews-text">{pR.content}</p>
                   </div>

@@ -7,9 +7,9 @@ const express = require("express"),
   cors = require("cors"),
   cookieParser = require("cookie-parser"),
   openRoutes = require("./routes/open/index"),
-  // secureRoutes = require("./routes/open/index"),
+  secureRoutes = require("./routes/open/index"),
   path = require("path");
-// authorize = require("./middleware/authorize");
+authorize = require("./middleware/authorize");
 
 app.use(cors());
 // Parse incoming JSON into objects
@@ -22,7 +22,7 @@ app.use(morgan("dev"));
 app.use("/api/users", openRoutes);
 
 // Secure routes
-// app.use("/api/users", authorize, secureRoutes);
+app.use("/api/users", authorize, secureRoutes);
 
 if (process.env.NODE_ENV === "production") {
   // serve any static files
