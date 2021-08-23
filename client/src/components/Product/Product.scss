@@ -1,0 +1,71 @@
+@import "../../partials/colors";
+@import "../../partials/mixins";
+@import "../../partials/typography";
+
+.product {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+
+  p {
+    line-height: 2rem;
+  }
+
+  &__imagecontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__image {
+    max-height: 20rem;
+    align-self: center;
+  }
+
+  &__header {
+    padding: 1rem 0;
+    border-bottom: 1px solid $mercury;
+
+    &-brand {
+      color: $silver;
+    }
+  }
+
+  &__details {
+    padding: 1rem 0;
+    text-transform: lowercase;
+  }
+
+  &__table {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 1;
+
+    &-container {
+      line-height: 10rem;
+    }
+
+    &-type {
+      width: 7rem;
+      color: $silver;
+      line-height: 2.5rem;
+    }
+    &-content {
+      font-size: 0.9rem;
+    }
+  }
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2rem;
+
+    &__textcontainer {
+      padding-left: 4rem;
+    }
+  }
+
+  @include desktop {
+    padding: 2rem 15rem;
+  }
+}

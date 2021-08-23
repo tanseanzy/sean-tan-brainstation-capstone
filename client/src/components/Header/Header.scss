@@ -1,3 +1,30 @@
-// @use "../../partials/colors" as *;
-// @use "../../partials/mixins" as *;
-// @use "../../partials/typography" as *;
+@import "../../partials/colors";
+@import "../../partials/mixins";
+@import "../../partials/typography";
+
+.header {
+  display: flex;
+  flex-direction: flex-start;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid $mercury;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  //   background-color: $lightgreen;
+
+  &__logo {
+    font-size: 3.5rem;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+
+    &-text {
+      padding: 0 1.5rem;
+    }
+  }
+}

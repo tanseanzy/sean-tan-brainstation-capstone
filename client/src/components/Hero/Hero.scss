@@ -1,3 +1,31 @@
-// @use "../../partials/colors" as *;
-// @use "../../partials/mixins" as *;
-// @use "../../partials/typography" as *;
+@import "../../partials/colors";
+@import "../../partials/mixins";
+@import "../../partials/typography";
+
+.hero {
+  background: url("../../assets/images/skin-3.jpg");
+  background-size: cover;
+  background-position: center 0;
+  min-height: 8rem;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin-bottom: -5rem;
+  &__text {
+    color: white;
+    font-style: italic;
+  }
+
+  @include tablet {
+    min-height: 15rem;
+
+    &__text {
+      font-size: 1.3rem;
+    }
+  }
+
+  @include desktop {
+    min-height: 20rem;
+  }
+}

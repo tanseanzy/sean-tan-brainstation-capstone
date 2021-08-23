@@ -1,3 +1,49 @@
-// @use "../../partials/colors" as *;
-// @use "../../partials/mixins" as *;
-// @use "../../partials/typography" as *;
+@import "../../partials/colors";
+@import "../../partials/mixins";
+@import "../../partials/typography";
+
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__container {
+    margin-top: -4rem;
+    list-style-type: none;
+    width: 45%;
+
+    &-image {
+      display: flex;
+      justify-content: center;
+      transform: scale(30%);
+      margin-bottom: -9rem;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.7rem;
+      padding: 0 3rem;
+
+      &-brand {
+        font-weight: bold;
+        color: $silver;
+      }
+    }
+  }
+
+  @include tablet {
+    &__container {
+      width: 30%;
+    }
+  }
+
+  @include desktop {
+    &__container {
+      width: 20%;
+    }
+  }
+}

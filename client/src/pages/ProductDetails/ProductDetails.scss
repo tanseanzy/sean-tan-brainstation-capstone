@@ -1,3 +1,37 @@
-// @use "../../partials/colors" as *;
-// @use "../../partials/mixins" as *;
-// @use "../../partials/typography" as *;
+@import "../../partials/colors";
+@import "../../partials/mixins";
+@import "../../partials/typography";
+
+.main {
+  padding: 0 1rem;
+  &__reviews {
+    border-top: 1px solid $mercury;
+    padding: 2rem 3rem;
+
+    &-container {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid $mercury;
+    }
+
+    &-name {
+      padding-bottom: 0.5rem;
+      color: $silver;
+    }
+
+    &-text {
+      font-size: 0.8rem;
+    }
+  }
+
+  @include tablet {
+    &__reviews {
+      padding: 2rem 8rem;
+    }
+  }
+
+  @include desktop {
+    &__reviews {
+      padding: 2rem 17.5rem;
+    }
+  }
+}

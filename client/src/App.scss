@@ -1,0 +1,9 @@
+@use "./partials/colors" as *;
+@use "./partials/mixins" as *;
+@use "./partials/typography" as *;
+
+.App {
+  font-family: "Kollektif";
+  position: relative;
+  min-height: 100vh;
+}

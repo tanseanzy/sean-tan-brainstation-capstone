@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import axios from "axios";
 import "./HomePage.scss";
 import Main from "../../components/Main/Main";
+import Hero from "../../components/Hero/Hero";
 
 export default class HomePage extends Component {
   state = {
@@ -26,9 +27,9 @@ export default class HomePage extends Component {
   render() {
     return (
       <div>
+        <Hero />
         {this.state.products && (
           <>
-            <p>hi</p>
             <Main products={this.state.products} />
           </>
         )}

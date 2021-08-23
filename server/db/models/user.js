@@ -2,7 +2,7 @@ const mongoose = require("mongoose"),
   validator = require("validator"),
   bcrypt = require("bcryptjs"),
   jwt = require("jsonwebtoken");
-Product = require("./product");
+// Product = require("./product");
 
 const userSchema = new mongoose.Schema(
   {
@@ -49,23 +49,20 @@ const userSchema = new mongoose.Schema(
         },
       },
     ],
-    avatar: {
-      type: String,
-    },
   },
   {
     timestamps: true,
   }
 );
 
-/**
- * Create a virtual relation between User and product.
- */
-userSchema.virtual("products", {
-  ref: "Product",
-  localField: "_id",
-  foreignField: "owner",
-});
+// /**
+//  * Create a virtual relation between User and product.
+//  */
+// userSchema.virtual("products", {
+//   ref: "Product",
+//   localField: "_id",
+//   foreignField: "owner",
+// });
 
 /**
  * // By naming this instance method toJSON we don't

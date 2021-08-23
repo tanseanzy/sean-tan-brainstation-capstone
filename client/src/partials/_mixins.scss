@@ -1,0 +1,25 @@
+/* MEDIA BREAKPOINTS */
+$mobile-size: 767px;
+$tablet-size: 768px;
+$desktop-size: 1440px;
+
+/* FOR MOBILE */
+@mixin mobile {
+  @media only screen and (max-width: $mobile-size) {
+    @content;
+  }
+}
+
+/* FOR TABLET */
+@mixin tablet {
+  @media only screen and (min-width: $tablet-size) {
+    @content;
+  }
+}
+
+/* FOR DESKTOP */
+@mixin desktop {
+  @media only screen and (min-width: $desktop-size) {
+    @content;
+  }
+}

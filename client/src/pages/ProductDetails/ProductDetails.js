@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import axios from "axios";
 import "./ProductDetails.scss";
-import ProductPage from "../../components/ProductPage/ProductPage";
-import Reviews from "../../components/Reviews/Reviews";
+import Product from "../../components/Product/Product";
 
 export default class ProductDetails extends Component {
   state = {
@@ -33,22 +32,22 @@ export default class ProductDetails extends Component {
     const productReviews = this.state.productReviews;
     console.log(productReviews);
     return (
-      <div>
+      <div className="main">
         {this.state.productDetails && (
           <>
-            <p>hi</p>
-            <ProductPage productDetails={this.state.productDetails} />
+            <Product productDetails={this.state.productDetails} />
             {/* <Reviews productDetails={this.state.productDetails} /> */}
-
-            {productReviews.map((pR, key) => {
-              return (
-                <div>
-                  <p>{pR.name}</p>
-                  <p>{pR.content}</p>
-                  <p>{pR.postedBy}</p>
-                </div>
-              );
-            })}
+            <div className="main__reviews">
+              <h2>reviews</h2>
+              {productReviews.map((pR, key) => {
+                return (
+                  <div className="main__reviews-container">
+                    <p className="main__reviews-name">{pR.name}</p>
+                    <p className="main__reviews-text">{pR.content}</p>
+                  </div>
+                );
+              })}
+            </div>
           </>
         )}
       </div>
