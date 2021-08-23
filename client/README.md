@@ -1,3 +1,11 @@
+# Hello & welcome to my app!
+
+To get this app up and running, there a few things to run before that happens!
+
+1. In the root folder, run "npm run dev" in your terminal,
+2. Next, move into the server folder and run "npm run db:reset",
+3. Lastly, move into the client folder, and finish off with "npm start"! :)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
