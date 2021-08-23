@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <main className="main">
+        <main className="App__main">
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/about" exact component={About} />

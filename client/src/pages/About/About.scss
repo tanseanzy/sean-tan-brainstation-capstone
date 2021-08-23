@@ -3,5 +3,21 @@
 @import "../../partials/typography";
 
 .about {
-  padding: 2rem;
+  padding: 2.5rem;
+  background: url("../../assets/images/skin-2.jpg");
+  width: 100vw;
+
+  p {
+    line-height: 1.5rem;
+    padding: 1rem 1rem;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  @include tablet {
+    padding: 5rem 10rem;
+  }
+
+  @include desktop {
+    padding: 5rem 20rem;
+  }
 }
