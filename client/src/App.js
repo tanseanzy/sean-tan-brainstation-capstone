@@ -11,13 +11,13 @@ import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import UserSignUp from "./pages/UserSignUp/UserSignUp";
 import UserLogin from "./pages/UserLogin/UserLogin";
+import LogoutPage from "./pages/LogoutPage/LogoutPage";
 import ProductDetails from "./pages/ProductDetails";
-import NewProduct from "./pages/NewProduct";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter forceRefresh={true}>
         <Header />
         <main className="App__main">
           <Switch>
@@ -25,12 +25,14 @@ function App() {
             <Route path="/about" exact component={About} />
             <Route path="/signup" exact component={UserSignUp} />
             <Route path="/login" exact component={UserLogin} />
-            <Route path="/product/:id" exact component={ProductDetails} />
-            <ProtectedRoute
-              path="/createproduct"
+
+            <Route
+              forceRefresh={true}
+              path="/product/:id"
               exact
-              component={NewProduct}
+              component={ProductDetails}
             />
+            <Route path="/logout" exact component={LogoutPage} />
           </Switch>
         </main>
         <Footer />

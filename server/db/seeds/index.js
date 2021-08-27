@@ -53,19 +53,16 @@ const dbReset = async () => {
       reviews: [
         {
           name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-          title: faker.lorem.sentence(),
           content: faker.lorem.paragraph(),
           postedBy: userIdArray[Math.floor(Math.random() * userIdArray.length)],
         },
         {
           name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-          title: faker.lorem.sentence(),
           content: faker.lorem.paragraph(),
           postedBy: userIdArray[Math.floor(Math.random() * userIdArray.length)],
         },
         {
           name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-          title: faker.lorem.sentence(),
           content: faker.lorem.paragraph(),
           postedBy: userIdArray[Math.floor(Math.random() * userIdArray.length)],
         },

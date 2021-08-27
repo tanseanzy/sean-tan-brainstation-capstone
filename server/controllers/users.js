@@ -17,7 +17,7 @@ exports.createUser = async (req, res) => {
       { expiresIn: "24h" }
     );
     console.log(userToken);
-    res.status(201).json({ user: user, userToken });
+    res.status(201).json({ user: user, userToken: userToken });
   } catch (e) {
     res.status(400).json({ error: e.toString() });
   }
@@ -37,7 +37,7 @@ exports.loginUser = async (req, res) => {
     console.log(userToken);
     res.status(201).json({ user, userToken });
   } catch (e) {
-    res.status(400).json({ error: e.toString() });
+    res.status(400).json({ error: e.message });
   }
 };
 

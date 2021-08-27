@@ -23,7 +23,6 @@ export default class UserLogin extends Component {
       .post("http://localhost:8080/api/users/login", this.state.formData)
       .then((response) => {
         sessionStorage.setItem("token", response.data.userToken);
-        // console.log(this.props);
         this.props.history.push("/");
       })
       .catch((event) => console.log(event.message));
@@ -31,7 +30,7 @@ export default class UserLogin extends Component {
 
   render() {
     const token = sessionStorage.getItem("token");
-    console.log(token);
+    // console.log(token);
     return (
       <div className="login">
         <h1> welcome back!</h1>

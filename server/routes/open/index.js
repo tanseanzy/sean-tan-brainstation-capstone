@@ -9,6 +9,10 @@ const router = require("express").Router(),
 // Router GET
 router.get("/products", getAllProducts);
 router.get("/products/:id", getSpecificProduct);
+// router.post("/products/:id/reviews", (req, res) => {
+//   const { name, title, content, postedBy } = req.body;
+//   res.json({ name, title, content, postedBy });
+// });
 router.get("/allusers", getAllUsers);
 
 // Router Post

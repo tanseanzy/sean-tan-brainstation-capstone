@@ -17,8 +17,8 @@ export default class About extends Component {
             as a skincare enthusiast, i'm always on the hunt for new products to
             try! theskinlab is meant to serve as a platform for those new to
             skincare to build their own skincare regimen with the use of
-            different skincare categories, by adding their favorite products to
-            a list!
+            different skincare categories, and by both browsing and adding
+            reviews a specific product!
           </p>
         </div>
       </div>

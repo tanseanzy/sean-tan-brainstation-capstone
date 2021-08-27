@@ -1,0 +1,14 @@
+@import "../../partials/colors";
+@import "../../partials/mixins";
+@import "../../partials/typography";
+
+.logout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $lightgreen;
+  width: 100vw;
+  height: 15rem;
+  font-size: 1.15rem;
+}

@@ -21,10 +21,12 @@ export default class UserSignUp extends Component {
     const newUser = {
       name: event.target.name.value,
       email: event.target.email.value,
-      password: event.target.email.value,
+      password: event.target.password.value,
     };
 
     this.userSignup(newUser);
+    console.log(newUser);
+    window.location.href = "/login";
   };
 
   render() {
