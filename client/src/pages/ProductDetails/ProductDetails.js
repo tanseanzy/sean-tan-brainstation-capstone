@@ -58,40 +58,32 @@ export default class ProductDetails extends Component {
   };
 
   render() {
+    console.log(sessionStorage.getItem("token"));
     const productReviews = this.state.productReviews;
     return (
       <div className="main">
         {this.state.productDetails && (
           <>
             <Product productDetails={this.state.productDetails} />
-            {/* <NewReview /> */}
             <div className="main__reviews">
-              {/* <NewReview /> */}
               <div>
-                <form className="main__form" onSubmit={this.handleSubmit}>
-                  <h3 className="main__form-title">leave a review!</h3>
-                  {/* <label className="main__form-label">title</label>
-                  <div>
-                    <input
-                      className="main__form-name"
-                      name="title"
-                      type="text"
-                    />
-                  </div> */}
-                  {/* <label className="main__form-label">content</label> */}
-                  <div>
-                    <input
-                      className="main__form-content"
-                      name="content"
-                      type="text"
-                    />
-                  </div>
-                  <div className="main__buttoncontainer">
-                    <button className="main__form-button" type="submit">
-                      submit
-                    </button>
-                  </div>
-                </form>
+                {sessionStorage.getItem("token") === null ? null : (
+                  <form className="main__form" onSubmit={this.handleSubmit}>
+                    <h3 className="main__form-title">leave a review!</h3>
+                    <div>
+                      <input
+                        className="main__form-content"
+                        name="content"
+                        type="text"
+                      />
+                    </div>
+                    <div className="main__buttoncontainer">
+                      <button className="main__form-button" type="submit">
+                        submit
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
               <h2 className="main__title">reviews</h2>
               {productReviews.map((pR, key) => {

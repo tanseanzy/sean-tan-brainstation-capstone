@@ -36,16 +36,11 @@
     &-title {
       color: $silver;
       font-weight: 400;
-      padding: 0.5rem 0 0.25rem 0;
+      padding: 1rem 0 0.5rem 0;
     }
 
     &-label {
       padding: 0.5rem 0 0.25rem 0;
-    }
-    &-name {
-      height: 2rem;
-      width: 100%;
-      padding: 1rem;
     }
 
     &-content {
@@ -57,7 +52,7 @@
     &-button {
       width: 100%;
       height: 2rem;
-      margin: 1rem 0;
+      margin: 1.25rem 0;
       background-color: $darkgreen;
       border: 1px solid $darkgreen;
       border-radius: 5px;
@@ -73,6 +68,7 @@
   @include tablet {
     &__reviews {
       padding: 1rem 8rem;
+      margin: 0 1rem;
     }
 
     &__form {
