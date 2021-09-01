@@ -20,7 +20,7 @@ export default class UserLogin extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8080/api/users/login", this.state.formData)
+      .post("/api/users/login", this.state.formData)
       .then((response) => {
         sessionStorage.setItem("token", response.data.userToken);
         this.props.history.push("/");

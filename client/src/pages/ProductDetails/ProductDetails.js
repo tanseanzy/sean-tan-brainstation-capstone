@@ -12,9 +12,7 @@ export default class ProductDetails extends Component {
 
   componentDidMount() {
     axios
-      .get(
-        `http://localhost:8080/api/users/products/${this.props.match.params.id}`
-      )
+      .get(`/api/users/products/${this.props.match.params.id}`)
       .then((response) => {
         this.setState({
           productDetails: response.data,
@@ -28,15 +26,11 @@ export default class ProductDetails extends Component {
 
   postComment = (obj) => {
     axios
-      .post(
-        `http://localhost:8080/api/secure/products/${this.props.match.params.id}/reviews`,
-        obj,
-        {
-          headers: {
-            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-          },
-        }
-      )
+      .post(`/api/secure/products/${this.props.match.params.id}/reviews`, obj, {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        },
+      })
       .then((response) => {
         this.props.history.push(`/product/${this.props.match.params.id}`);
         console.log(response.data);

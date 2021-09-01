@@ -11,7 +11,7 @@ export default class HomePage extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8080/api/users/products/")
+      .get("/api/users/products/")
       .then((response) => {
         this.setState({
           products: response.data,
