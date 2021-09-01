@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 if (process.env.NODE_ENV === "production") {
   // handle react routing, return all requests to react app
   app.get("*", (request, response) => {
-    this.response.sendFile(
+    response.sendFile(
       path.resolve(__dirname, "..", "client", "build", "index.html")
     );
   });
